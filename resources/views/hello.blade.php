@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
-   <head>
-        <title>Авторизация</title>
-        <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-        <link href="{{asset('css/main.css')}}" rel="stylesheet">
-        <link href="{{asset('css/bootstrap-social.css')}}" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css"> 
-    </head>
-    <body>
-       
+@extends('layouts.app')
 
-        <a href="">
-            Sign in with Facebook
-        </a>
+@section('content')
+<div class="container">
 
-    </body>
-</html>
+    <div class="panel panel-default">
+    <h1 class="text-center">
+Войдите с Facebook, чтобы писать сообщения.
+</h1>
+         <div class="panel-body">
+            <a href="redirect"  class="btn btn-primary" id="login_fb">Facebook Login</a>
+         </div>           
+     </div>
+</div>
+@endsection
