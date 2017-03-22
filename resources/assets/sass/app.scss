@@ -8,6 +8,13 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-#app #login_fb{
+#app #login_fb {
 	display: block;
+	width: 200px;
+	margin:  auto ;
+	margin-bottom: 10px;
+
+}
+.panel{
+margin-top: 20px;
 }
