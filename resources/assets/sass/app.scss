@@ -8,13 +8,35 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-#app #login_fb {
-	display: block;
-	width: 200px;
-	margin:  auto ;
-	margin-bottom: 10px;
 
+.comment {
+    font-size: 14px;
 }
-.panel{
-margin-top: 20px;
+.media {
+    margin: 15px 0 15px 50px;
+    padding-left: 5px;
+    border-left: solid 1px;
+}
+.media:first-child {
+    margin-top: 20px;
+}
+.media p{
+	padding: 5px 10px;
+	background:GhostWhite;
+}
+
+.panel1 {
+    padding-right: 50px;
+}
+.date{
+	display: inline-block;
+	text-align: right;
+	background:transparent;
+}
+
+.panel2{
+  padding: 10px;
+}
+.send-bt{
+	margin-top: 10px;
 }
