@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+	$posts = App\Post::orderBy('created_at', 'DESC')->get();
+
+    return view('index', ['posts' => $posts]);
 });
 
 Auth::routes();
