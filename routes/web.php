@@ -11,15 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-	$posts = App\Post::with([
-      'comments',
-      'parentComments.user',
-      'parentComments.allCommentsWithUser'
-    ])->orderBy('created_at', 'DESC')->get();
+Route::get('/', 'MainController@index');
+Route::post('/post', 'PostController@create');
 
-    return view('index', ['posts' => $posts]);
-});
+Route::post('/comment/{post_id}/{parent_id}', 'CommentController@create');
 
 Auth::routes();
 

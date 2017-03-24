@@ -3,14 +3,16 @@
 @section('content')
 <div class="container">
 
+
  @if (Auth::guest()) 
 <h4>Please login to post messages.</h4>
  @else
     <div class="panel panel-default panel2">   
-    <form action="/add-post" method="POST">
+    <form action="/post" method="POST">
     	<h4> New post.</h4>
         <textarea class="form-control" rows="3" name="new_post"></textarea>
         <button type="submit" class="btn btn-default send-bt">Send</button>
+        {{ csrf_field() }}
     </form>
     </div>
 @endif
@@ -28,13 +30,33 @@
 	                <p>{{$post->content}}</p>
 	                <p class="date pull-right">{{$post->created_at->format('d M Y')}}</p>
 	                <p class="pull-right">{{$count = $post->comments->count()}} Comments</p>
+
+							<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js">
+							</script>
+							<script type="text/javascript">   
+							$(document).ready(function(){
+							  
+							 
+							      $("#com").hide();
+							   $("#but_oppen").click(function(){
+							      $("#com").show(500);
+							   });
+
+							   $("#but_close").click(function(){
+							      $("#com").hide(500);
+							   });
+
+							});                                           
+							</script> 
+
 	                 
 	                  @if (!Auth::guest()) 
-                        <button type="button" class="btn btn-default btn-sm">Reply</button>
-	                    <form>
-	                        <textarea class="form-control" rows="3"></textarea>
-	                        <button type="button" class="btn btn-default send-bt btn-xs">Send</button>
-	                        <button type="button" class="btn btn-default send-bt btn-xs">Cancel</button>
+                        <button id="but_oppen" type="button" class="btn btn-default btn-sm">Reply</button>
+	                    <form id="com" action="/comment/{{$post->id}}/0" method="POST" class="">
+	                        <textarea class="form-control" rows="3" name="content"></textarea>
+	                        <button type="submit" class="btn btn-default send-bt btn-xs">Send</button>
+	                        <button id="but_close" type="button" class="btn btn-default send-bt btn-xs">Cancel</button>
+	                        {{ csrf_field() }}
 	                    </form>
 	                 @endif
 	        </div>

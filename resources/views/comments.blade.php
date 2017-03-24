@@ -11,10 +11,11 @@
                     
                            @if (!Auth::guest()) 
                         <button type="button" class="btn btn-default btn-sm">Reply</button>
-	                    <form>
-	                        <textarea class="form-control" rows="3"></textarea>
-	                        <button type="button" class="btn btn-default send-bt btn-xs">Send</button>
+	                    <form  action="/comment/{{$comment->post_id}}/{{$comment->id}}" class="hidden" method="POST">
+	                        <textarea class="form-control" rows="3" name="content"></textarea>
+	                        <button type="submit" class="btn btn-default send-bt btn-xs">Send</button>
 	                        <button type="button" class="btn btn-default send-bt btn-xs">Cancel</button>
+	                        {{ csrf_field() }}
 	                    </form>
 	                 @endif
                            
