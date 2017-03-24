@@ -15,4 +15,10 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+	public function parentComments()
+	{
+	    return $this->comments()->where('parent_id', null);
+	}
+
 }

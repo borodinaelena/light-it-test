@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-	$posts = App\Post::orderBy('created_at', 'DESC')->get();
+	$posts = App\Post::with([
+      'comments',
+      'parentComments.user',
+      'parentComments.allCommentsWithUser'
+    ])->orderBy('created_at', 'DESC')->get();
 
     return view('index', ['posts' => $posts]);
 });

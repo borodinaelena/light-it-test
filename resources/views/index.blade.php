@@ -8,8 +8,9 @@
  @else
     <div class="panel panel-default panel2">   
     <form action="/add-post" method="POST">
-        <textarea class="form-control" rows="3"></textarea>
-        <button type="submit" class="btn btn-default send-bt">Отправить</button>
+    	<h4> New post.</h4>
+        <textarea class="form-control" rows="3" name="new_post"></textarea>
+        <button type="submit" class="btn btn-default send-bt">Send</button>
     </form>
     </div>
 @endif
@@ -25,17 +26,22 @@
 	        <div class="media-body">
 	            <h4 class="media-heading">{{$post->user->name}}</h4>
 	                <p>{{$post->content}}</p>
+	                <p class="date pull-right">{{$post->created_at->format('d M Y')}}</p>
+	                <p class="pull-right">{{$count = $post->comments->count()}} Comments</p>
 	                 
-	                      <button type="button" class="btn btn-default btn-xs">коментирвоать</button>
-	                      <p class="date pull-right">{{$post->created_at->format('d M Y')}}</p>
+	                  @if (!Auth::guest()) 
+                        <button type="button" class="btn btn-default btn-sm">Reply</button>
 	                    <form>
 	                        <textarea class="form-control" rows="3"></textarea>
-	                        <button type="button" class="btn btn-default send-bt btn-xs">Отправить</button>
-	                        <button type="button" class="btn btn-default send-bt btn-xs">Отмена</button>
+	                        <button type="button" class="btn btn-default send-bt btn-xs">Send</button>
+	                        <button type="button" class="btn btn-default send-bt btn-xs">Cancel</button>
 	                    </form>
-	                 
+	                 @endif
 	        </div>
 	            <!-- comments here -->
+	            @if($count && $post->relationLoaded('parentComments'))
+	                @include('comments', ['comments' => $post->parentComments])
+	            @endif
 
 	    </li>
 	</ul>  
