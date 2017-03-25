@@ -25,36 +25,17 @@
 	    <a class="pull-left" href="#">
 	      <img class="media-object" src="{{$post->user->avatar}}" width="60px" height="60px">
 	    </a>
-	        <div id="hide" class="media-body">
-	            <h4 class="media-heading">{{$post->user->name}}</h4>
+	        <div class="media-body">
+	            	<h4 class="media-heading">{{$post->user->name}} </h4>
 	                <p>{{$post->content}}</p>
 	                <p class="date pull-right">{{$post->created_at->format('d M Y')}}</p>
 	                <p class="pull-right">{{$count = $post->comments->count()}} Comments</p>
-
-							<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js">
-							</script>
-							<script type="text/javascript">   
-							$(document).ready(function(){
-							  
-							 
-							   $("#but_oppen").click(function(){
-							      $("button+form:first").show(500);
-							   });
-
-							   $("#but_close").click(function(){
-							      $("button+form:first").hide(500);
-							   });
-
-							});                                           
-							</script> 
-
-	                 
-	                  @if (!Auth::guest()) 
-                        <button id="but_oppen" type="button" class="btn btn-default btn-sm">Reply</button>
-	                    <form id="com" action="/comment/{{$post->id}}/0" method="POST" >
+	                @if (!Auth::guest()) 
+                        <button type="button" class="reply btn btn-default btn-sm">Reply</button>
+	                    <form class="hidden" action="/comment/{{$post->id}}/0" method="POST" >
 	                        <textarea class="form-control" rows="3" name="content"></textarea>
 	                        <button type="submit" class="btn btn-default send-bt btn-xs">Send</button>
-	                        <button id="but_close" type="button" class="btn btn-default send-bt btn-xs">Cancel</button>
+	                        <button type="button" class="cancel btn btn-default send-bt btn-xs">Cancel</button>
 	                        {{ csrf_field() }}
 	                    </form>
 	                 @endif

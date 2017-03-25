@@ -32,7 +32,7 @@ class SocialAccountService
                 ]);
             }
 
-            $account->user()->associate($user) 
+            $account->user()->associate($user); 
             $account->save();
 
             return $user;
