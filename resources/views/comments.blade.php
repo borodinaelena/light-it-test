@@ -7,7 +7,7 @@
                 <div class="media-body">
                      <h4 class="media-heading">{{$comment->user->name}}</h4>  
                      <p>{{$comment->content}}</p>
-                     <p class="date pull-right">{{$comment->created_at->format('d M Y')}}</p>
+                     <p class="date pull-right">{{$comment->created_at->format('d M Y - H:i')}}</p>
                     
                     @if (!Auth::guest()) 
                         <button type="button" class="reply btn btn-default btn-sm">Reply</button>

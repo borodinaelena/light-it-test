@@ -28,7 +28,7 @@
 	        <div class="media-body">
 	            	<h4 class="media-heading">{{$post->user->name}} </h4>
 	                <p>{{$post->content}}</p>
-	                <p class="date pull-right">{{$post->created_at->format('d M Y')}}</p>
+	                <p class="date pull-right">{{$post->created_at->format('d M Y - H:i')}}</p>
 	                <p class="pull-right">{{$count = $post->comments->count()}} Comments</p>
 	                @if (!Auth::guest()) 
                         <button type="button" class="reply btn btn-default btn-sm">Reply</button>

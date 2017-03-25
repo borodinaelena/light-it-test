@@ -23,7 +23,7 @@
 .media:first-child {
     margin-top: 20px;}
 
-.media p{
+.media p {
 	padding: 5px 10px;
 	background:rgba(0,0,0,0.05);
     
@@ -32,16 +32,18 @@
 .panel1 {
     padding-right: 10px;
 }
-.date{
+.date {
 	display: inline-block;
 	text-align: right;
 	background:transparent;
 }
 
-.panel2{
-  padding: 10px;
+.panel2 {
+    padding: 10px;
 }
-.send-bt{
+.send-bt {
 	margin-top: 10px;
 }
-
+.navbar-brand > img {
+    display: inline-block;
+}
