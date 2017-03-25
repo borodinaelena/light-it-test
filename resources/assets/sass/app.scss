@@ -11,17 +11,18 @@
 
 .comment {
     font-size: 14px;
+    margin-left: -60px;
 }
 .media {
-    margin: 15px 0 15px 10px;
+    margin: 15px 0 15px 70px;
     padding:5px;
     border-left: solid 1px  #aeaeae; 
     background: rgba(0,0,0,0.05);
     
 }
 .media:first-child {
-    margin-top: 20px;
-}
+    margin-top: 20px;}
+
 .media p{
 	padding: 5px 10px;
 	background:rgba(0,0,0,0.05);
@@ -42,4 +43,7 @@
 }
 .send-bt{
 	margin-top: 10px;
+}
+#comment_form{
+    display: none;
 }

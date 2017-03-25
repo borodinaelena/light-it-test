@@ -23,9 +23,9 @@
 	<ul class="media-list comment">
 	  <li class="media">
 	    <a class="pull-left" href="#">
-	      <img class="media-object" src="http://fakeimg.pl/60x60/">
+	      <img class="media-object" src="{{$post->user->avatar}}" width="60px" height="60px">
 	    </a>
-	        <div class="media-body">
+	        <div id="hide" class="media-body">
 	            <h4 class="media-heading">{{$post->user->name}}</h4>
 	                <p>{{$post->content}}</p>
 	                <p class="date pull-right">{{$post->created_at->format('d M Y')}}</p>
@@ -37,13 +37,12 @@
 							$(document).ready(function(){
 							  
 							 
-							      $("#com").hide();
 							   $("#but_oppen").click(function(){
-							      $("#com").show(500);
+							      $("button+form:first").show(500);
 							   });
 
 							   $("#but_close").click(function(){
-							      $("#com").hide(500);
+							      $("button+form:first").hide(500);
 							   });
 
 							});                                           
@@ -52,7 +51,7 @@
 	                 
 	                  @if (!Auth::guest()) 
                         <button id="but_oppen" type="button" class="btn btn-default btn-sm">Reply</button>
-	                    <form id="com" action="/comment/{{$post->id}}/0" method="POST" class="">
+	                    <form id="com" action="/comment/{{$post->id}}/0" method="POST" >
 	                        <textarea class="form-control" rows="3" name="content"></textarea>
 	                        <button type="submit" class="btn btn-default send-bt btn-xs">Send</button>
 	                        <button id="but_close" type="button" class="btn btn-default send-bt btn-xs">Cancel</button>

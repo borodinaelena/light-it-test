@@ -56,7 +56,7 @@
                             <li class="dropdown">
                                 
                                 <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                 <img src="http://fakeimg.pl/25x25/">
+                                 <img src="{{ Auth::user()->avatar }}" width="25px" height="25px">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
