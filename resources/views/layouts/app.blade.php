@@ -51,7 +51,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a class="navbar-brand dropdown-toggle" href="redirect"><img src="http://www.iconsdb.com/icons/preview/gray/facebook-2-xxl.png" width="25px" height="25px"> Facebook Login</a></li>
+                            <li><a class="navbar-brand dropdown-toggle" href="redirect"><img src="https://www.facebook.com/images/fb_icon_325x325.png" width="25px" height="25px"> Facebook Login</a></li>
                         @else
                             <li class="dropdown">
                                 
